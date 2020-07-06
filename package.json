@@ -1,13 +1,22 @@
 {
   "name": "aelarah",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "version": "echo $npm_package_version",
+    "name": "echo $npm_package_name",
+    "test": "ng test --no-watch --browsers=ChromeHeadless --no-progress",
+    "cover": "ng test --code-coverage=true --watch=false",
+    "build:ci": "ng build --prod --aot --build-optimizer --progress=false --configuration=production --base-href ./",
+    "dockerRegistry": "echo $npm_package_publishConfig_dockerRegistry"
+  },
+  "publishConfig": {
+    "registry": "https://cdnxpro.pronaca.com/repository/npm-internal/",
+    "dockerRegistry": "cddnpro.pronaca.com"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +51,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "karma-junit-reporter": "^2.0.1"
   }
 }
